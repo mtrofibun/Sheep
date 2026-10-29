@@ -17,3 +17,14 @@ db.data = {
     5: Sheep(id=5, name="Valva", breed= "Valais Blacknose", sex="ewe"),
     6: Sheep(id=6, name="Ester", breed= "Border Leicester", sex="ewe"),
 }
+
+def add_sheep(self, sheep: Sheep) -> Sheep:
+    if sheep.id in self.data:
+        raise ValueError("Sheep with this ID already exists")
+    self.data[sheep.id] = sheep
+    return sheep
+
+def delete_sheep(self, sheep: Sheep) -> Sheep:
+    if sheep.id in self.data:
+        self.data[sheep.id].delete()
+    return "Sheep with this ID deleted"
